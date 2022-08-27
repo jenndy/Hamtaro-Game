@@ -38,7 +38,7 @@ public class Game extends JFrame implements ActionListener, KeyListener{
 	public static Lives lives;
 	public static Score score;
 	public static double time = 0;
-	public BgMusicS bgMusicS;
+	public Sounds.BgMusicS bgMusicS;
 	
 	public Game() {
 		setTitle("Hamster Pong");
@@ -70,7 +70,7 @@ public class Game extends JFrame implements ActionListener, KeyListener{
 		
 		countdown = new Countdown();
 		lives = new Lives();
-		bgMusicS = new BgMusicS();
+		bgMusicS = new Sounds.BgMusicS();
 	}
 	
 	protected class Canvas extends JPanel{
