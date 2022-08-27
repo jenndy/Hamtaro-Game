@@ -1,12 +1,14 @@
 # Hamtaro Game
 
-### Objective: ###
+### Objective:
 Keep a falling hamster afloat with a pillow as you feed it acorns.
 
 Structure:
+
 Main class is in Game.java
 
 Basic Gameplay: 
+
 The purpose of the game is to keep the Hamtaro character afloat by catching it with
 the pillow until the timer runs out. The pillow can move left, right, up or down, 
 with the respective arrow keys. There are 3 rounds to the game with three lives per 
