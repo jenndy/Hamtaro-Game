@@ -1,6 +1,6 @@
 # Hamtaro Game
 
-## Objective:
+## Objective ##:
 Keep a falling hamster afloat with a pillow as you feed it acorns.
 
 Structure:
