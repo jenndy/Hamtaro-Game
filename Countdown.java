@@ -1,3 +1,6 @@
+// The countdown bar that times the duration of each round 
+// Length of countdown bar increases with each round 
+
 import java.awt.Graphics;
 
 public class Countdown {
@@ -12,11 +15,14 @@ public class Countdown {
 	
 	public void draw(Graphics g) {
 		
+		// Draws two rectangles, 1 clear and 1 filled 
 		g.clearRect(x, y, width1, height);
 		g.fillRect(x, y, width2, height);
 		
 	}
 	
+	// The filled rectangle shrinks to simulate a timer 
+	// The timer shrinks at a slower rate with each successive round 
 	public void update() {
 		width2 -= 0.1 *(20 - 6*Score.round);
 		
