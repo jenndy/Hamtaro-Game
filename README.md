@@ -1,6 +1,6 @@
 # Hamtaro Game
 
-Objective:
+## Objective:
 Keep a falling hamster afloat with a pillow as you feed it acorns.
 
 Structure:
@@ -27,7 +27,7 @@ track of the number of remaining lives by looking at the number of potion bottle
 at top right corner of the screen.   
 
 Score: 
-Clearing a round adds 5 points, losing a life costs 2 points. A life is lost 
+Clearing a round adds 5 points, losing a life costs 2 points, eating an acorn gains 2 points. A life is lost 
 if the hamster falls out of the screen. Losing a round causes the game to end and 
 no additional points are detracted besides the 2 points lost by falling out of the screen. 
 
