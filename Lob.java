@@ -27,11 +27,12 @@ public class Lob {
 	public boolean win = false;
 
 	// Sound effects 
-	public BumpS bumpS;
-	public TransitionS transitionS;
-	public FallS fallS;
-	public WinS winS;
-	public LoseS loseS;
+	public Sounds sounds;
+	public Sounds.BumpS bumpS;
+	public Sounds.TransitionS transitionS;
+	public Sounds.FallS fallS;
+	public Sounds.WinS winS;
+	public Sounds.LoseS loseS;
 	
 	// Reads the image file 
 	protected Image loadImage(String filename) {
@@ -75,7 +76,7 @@ public class Lob {
 				Score.roundLab.setText("Round: " + Score.round + " |");
 				Game.countdown.width2 = 200;
 				Lives.lifeNum = 3;
-				transitionS = new TransitionS();
+				transitionS = new Sounds.TransitionS();
 			}
 			
 			// Sets score label 
@@ -89,14 +90,14 @@ public class Lob {
 			Lives.lifeNum -= 1; 
 			y = 50;
 			Game.time = 0;
-			fallS = new FallS();
+			fallS = new Sounds.FallS();
 			
 			// Hamster falls out of screen and no more lives = game over 
 			if ( Lives.lifeNum == 0 ) {
 				Game.gameOver();	
 				//draw game over 
 				gameOver = true;
-				loseS = new LoseS();
+				loseS = new Sounds.LoseS();
 			}
 			
 			// Sets score label 
@@ -109,7 +110,7 @@ public class Lob {
 			y = Game.topline;
 			Game.time = 0; // reset timer to 0 after each hit 
 			coY *= -1;
-			bumpS = new BumpS();
+			bumpS = new Sounds.BumpS();
 			
 		}
 		if (x < Game.leftline) {
@@ -118,14 +119,14 @@ public class Lob {
 			x = Game.leftline;
 			Game.time = 0; 
 			coX *= -1;
-			bumpS = new BumpS();
+			bumpS = new Sounds.BumpS();
 			
 		}
 		if (x  > Game.rightline) {
 			x = Game.rightline; 
 			Game.time = 0;
 			coX *= -1;
-			bumpS = new BumpS();
+			bumpS = new Sounds.BumpS();
 			
 		}
 		
@@ -140,14 +141,14 @@ public class Lob {
 			y = Game.paddle.centerY - 90;
 			Game.time = 0;
 			coY *= -1;
-			bumpS = new BumpS();
+			bumpS = new Sounds.BumpS();
 			
 		}
 		if (j < 80 && k > -10 && k < 0) {
 			y = Game.paddle.centerY + 30 ;
 			Game.time = 0; 
 			coY *= -1;
-			bumpS = new BumpS();
+			bumpS = new Sounds.BumpS();
 		}
 		
 		// Adding displacement with coefficient direction to original position 
