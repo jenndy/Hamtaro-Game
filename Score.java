@@ -1,3 +1,6 @@
+// Keeps track of score and round numbers 
+// Resultant image for wining or losing the game 
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -20,6 +23,7 @@ public class Score extends JPanel implements ActionListener {
 	public static JLabel roundLab;
 	public static JButton restartButton;
 	
+	// Constructor sets the score and round labels 
 	public Score() {
 		setPreferredSize(new Dimension(100, 100));
 		setLayout(new FlowLayout());
@@ -33,6 +37,7 @@ public class Score extends JPanel implements ActionListener {
 
 	}
 	
+	// Reads in end result picture 
 	protected Image loadImage(String filename) {
 		try {
 			return ImageIO.read(new File(filename));
@@ -45,10 +50,12 @@ public class Score extends JPanel implements ActionListener {
 	Image gameover = loadImage("src/graphics/gameover.png");
 	Image win = loadImage("src/graphics/win.png");
 	
+	// Image for losing 
 	public void draw(Graphics g) {
 			g.drawImage(gameover, 0, Game.height - 4*Game.height/5, null);
 		}
 		
+	// Image for winning 
 	public void draw2(Graphics g) {
 			g.drawImage(win, 0, Game.height - 4*Game.height/5, null);
 		}
