@@ -10,9 +10,9 @@ Basic Gameplay:
 The purpose of the game is to keep the Hamtaro character afloat by catching it with
 the pillow until the timer runs out. The pillow can move left, right, up or down, 
 with the respective arrow keys. There are 3 rounds to the game with three lives per 
-round. There will be acorns falling the hamster can eat to regain lives. 
-To yield the highest score, clear all 3 rounds while minimizing the amount 
-of lives lost. 
+round. There will be acorns falling the hamster can eat to increase the score. 
+To yield the highest score, eat acorns, minimize the amount 
+of lives lost, and clear all 3 rounds.
 
 Countdown: 
 The timer is two rectangles, one clear and one filled with green. The width of 
@@ -42,16 +42,6 @@ by the equations of projectile motion, which take gravity into account, and fall
 the bottom of the screen. It will also bounce off both the top and bottom of the paddle 
 as dictated by the equations of projectile motion. 
 
-Sound effects: 
-Sounds are added via Clip including: 
-- “bump”: Hamster hits the top, left, or right sides of the screen or the pillow.  
-- “fall”: Hamster falls out from the bottom of the screen. 
-- “transition”: Player advances to the next round. 
-- “lose”: Player loses the game. 
-- “win”: Applause sound effect if player wins the game. 
-- “background music”: The music box version of the Tottoko Hamutaro theme song 
-plays throughout the duration of the game. 
-
 Changing background: 
 The background changes from round to round. Round 1 has a general background, round 2 has a 
 more close up background, and round 3 has a sun setting in the background, creating a time 
@@ -60,3 +50,12 @@ lapse effect.
 Win or Lose Outcomes: 
 Winning or losing the game results in a different image and sound effect. 
 
+Sound effects: 
+Sounds are added via Clip including: 
+- “bump”: Hamster hits the top, left, or right sides of the screen or the pillow.  
+- “fall”: Hamster falls out from the bottom of the screen. 
+- “transition”: Player advances to the next round. 
+- “lose”: Player loses the game. 
+- “win”: Applause sound effect if player wins the game. 
+- “background music”: The music box version of the Tottoko Hamutaro theme song 
+plays throughout the duration of the game.
