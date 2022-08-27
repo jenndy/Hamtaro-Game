@@ -33,7 +33,7 @@ public class Game extends JFrame implements ActionListener, KeyListener{
 	public static Timer timer; 
 	public static Lob lob = new Lob(); 
 	public static Paddle paddle = new Paddle();
-	public static Acorn r1acorn1, r2acorn1, r2acorn2, r3acorn1, r3acorn2, r3acorn3; // (5) 
+	public static Acorn r1acorn1, r2acorn1, r2acorn2, r3acorn1, r3acorn2, r3acorn3;
 	public static Countdown countdown;
 	public static Lives lives;
 	public static Score score;
@@ -152,7 +152,7 @@ public class Game extends JFrame implements ActionListener, KeyListener{
 			break;
 		
 		}
-		time += 0.08; // * 
+		time += 0.08;
 
 		repaint();
 	}
@@ -226,7 +226,5 @@ public class Game extends JFrame implements ActionListener, KeyListener{
 	public static void gameOver() { 
 		timer.stop();
 		time = 0; 
-		
 	}
-
 }
