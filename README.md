@@ -3,11 +3,11 @@
 ### Objective:
 Keep a falling hamster afloat with a pillow as you feed it acorns.
 
-Structure:
+### Structure:
 
 Main class is in Game.java
 
-Basic Gameplay: 
+### Basic Gameplay: 
 
 The purpose of the game is to keep the Hamtaro character afloat by catching it with
 the pillow until the timer runs out. The pillow can move left, right, up or down, 
@@ -16,7 +16,7 @@ round. There will be acorns falling the hamster can eat to increase the score.
 To yield the highest score, eat acorns, minimize the amount 
 of lives lost, and clear all 3 rounds.
 
-Countdown: 
+### Countdown: 
 The timer is two rectangles, one clear and one filled with green. The width of 
 the green rectangle decreases as the round progresses. After each successive round, 
 the width of the green timer shrinks at a slower rate, making each successive round 
