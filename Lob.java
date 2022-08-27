@@ -1,3 +1,5 @@
+// Animation for the hamster 
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -7,25 +9,31 @@ import javax.imageio.ImageIO;
 
 public class Lob {
 	
+	// Dimensions of hamster 
 	public int hamWidth = 80;
 	public int hamHeight = 82;
 	
+	// Starting location of hamster 
 	public int x = Game.width/2 - hamWidth/2;
 	public int y = Game.baseline - 50 - hamHeight/2;
 	
+	// Initial coefficients 
 	public int vX = 0;
 	public int vY = 0;
 	public int coX = 1, coY = 1;
 	
+	// Game booleans that decide which end picture to draw 
 	public boolean gameOver = false;
 	public boolean win = false;
 
+	// Sound effects 
 	public BumpS bumpS;
 	public TransitionS transitionS;
 	public FallS fallS;
 	public WinS winS;
 	public LoseS loseS;
 	
+	// Reads the image file 
 	protected Image loadImage(String filename) {
 		try {
 			return ImageIO.read(new File(filename));
@@ -35,9 +43,9 @@ public class Lob {
 		}
 	}
 	
-	//draws the hamtaro 
 	Image hamster = loadImage("src/graphics/hamster.png");
 	
+	// Draws the hamster at the initial position 
 	public void draw(Graphics g) {
 		g.drawImage(hamster,  x,  y,  null);
 	}
@@ -45,36 +53,36 @@ public class Lob {
 	//calculates the projectile motion 
 	public void update() {
 	
+		// Equations for motion in x and y directions 
 		int a = (int)(Game.time*(20*Math.cos(Math.toRadians(60))));	
 		int b = (int)(20*Math.sin(Math.toRadians(60))*Game.time-0.5*9.8*Math.pow(Game.time, 2));
-		//System.out.println(x + "  and "  + y);
 		
-		//countown finishes (player wins the round) 
+		// Countown finishes = player wins the round 
 		if (Game.countdown.width2  <= 0) {
 			
+			// +5 points for winning round and goes to next round 
 			Score.score += 5; 
 			Score.round += 1; 
 			
-			//player wins the game 
+			// Finishes round 3 = player wins the game 
 			if (Score.round > 3) {
 				Game.gameOver();
 				win = true;
 				winS = new WinS();
-				//stops bg music (?)
-				//Sounds.clip.stop();
 			
 			}else {
-				//tranistions to new round 
+				// Transitions to new round: set round label, reset countdown and life 
 				Score.roundLab.setText("Round: " + Score.round + " |");
 				Game.countdown.width2 = 200;
 				Lives.lifeNum = 3;
 				transitionS = new TransitionS();
 			}
 			
+			// Sets score label 
 			Score.scoreLab.setText("Score: " + Score.score );
 		}
 	
-		//hamster falls out of screen 
+		// Hamster falls out of screen: -2 points, -1 life, resets y-coordinate of hamster 
 		if (y >= Game.baseline) {
 			
 			Score.score -= 2; 
@@ -83,16 +91,20 @@ public class Lob {
 			Game.time = 0;
 			fallS = new FallS();
 			
+			// Hamster falls out of screen and no more lives = game over 
 			if ( Lives.lifeNum == 0 ) {
 				Game.gameOver();	
 				//draw game over 
 				gameOver = true;
 				loseS = new LoseS();
 			}
+			
+			// Sets score label 
 			Score.scoreLab.setText("Score: " + Score.score );
 		}
 		
-		//hamster can hit 3 sides and the paddle 
+		// Hamster hits top, left, or right 
+		// Reset hamster back in boundary, restart timer, change coefficient to opposite 
 		if (y < Game.topline) {
 			y = Game.topline;
 			Game.time = 0; // reset timer to 0 after each hit 
@@ -117,12 +129,13 @@ public class Lob {
 			
 		}
 		
-		//calculates the distance between the paddle and the hamster
-		//y value can be negative, determines direction of deflection 
+		// Hamster hits the paddle 
+		// Calculates displacement between paddle and hamster
+		// y value can be negative, determines direction of deflection 
 		int j = Math.abs(x - Game.paddle.centerX);
 		int k = Game.paddle.centerY - y;
 		
-		//determines motion of hamster if it bumps the paddle 
+		// Motion of hamster if it bumps the paddle 
 		if (j < 80 && k < 80 && k > 0){
 			y = Game.paddle.centerY - 90;
 			Game.time = 0;
@@ -137,6 +150,7 @@ public class Lob {
 			bumpS = new BumpS();
 		}
 		
+		// Adding displacement with coefficient direction to original position 
 		x += (coX *a);
 		y += (coY *b);
 	}
